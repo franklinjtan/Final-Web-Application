@@ -22,13 +22,15 @@ def hello_user():
 
 @app.route('/login')
 def login():
+    google = oauth.create_client('google')
     redirect_uri = url_for('authorize', _external=True)
-    return oauth.twitter.authorize_redirect(redirect_uri)
+    return google.authorize_redirect(redirect_uri)
 
 @app.route('/authorize')
 def authorize:
-    token = oauth.twitter.authorize_access_token()
-    resp = oauth.twitter.get('userinfo')
+    google = oauth.create_client('google')
+    token = google.authorize_access_token()
+    resp = google.get('userinfo')
     user_info = resp.json()
     return redirect('/')
 
