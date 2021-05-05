@@ -1,13 +1,14 @@
-# From Flask OAuth Clients
 from flask import Flask, redirect, url_for, session
 from authlib.integrations.flask_client import OAuth
 
 app = Flask(__name__)
+app.secret_key = 'ying wu college 2021 secret key'
+
 oauth = OAuth(app)
 google = oauth.register(
     name='google',
-    client_id='',
-    client_secret='',
+    client_id='290202919562-2qd67u9ko2016ijo95f2no2ssa3a4bs6.apps.googleusercontent.com',
+    client_secret='poHIJ00YY61YC8g4yh1QGjfV',
     access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',
