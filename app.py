@@ -14,5 +14,10 @@ def login():
     redirect_uri = url_for('authorize', _external=True)
     return oauth.twitter.authorize_redirect(redirect_uri)
 
-
+@app.route('/authorize')
+def authorize:
+    token = oauth.twitter.authorize_access_token()
+    resp = oauth.twitter.get('account/verify_credentials.json')
+    profile = resp.json()
+    return redirect('/')
 
