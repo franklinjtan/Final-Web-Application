@@ -9,5 +9,10 @@ oauth = OAuth(app)
 def hello_user():
     return 'Welcome!'
 
+@app.route('/login')
+def login():
+    redirect_uri = url_for('authorize', _external=True)
+    return oauth.twitter.authorize_redirect(redirect_uri)
+
 
 
