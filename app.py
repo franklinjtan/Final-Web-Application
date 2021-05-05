@@ -4,7 +4,7 @@ from authlib.integrations.flask_client import OAuth
 
 app = Flask(__name__)
 oauth = OAuth(app)
-oauth.register(
+google = oauth.register(
     name='google',
     client_id='',
     client_secret='',
@@ -28,7 +28,7 @@ def login():
 @app.route('/authorize')
 def authorize:
     token = oauth.twitter.authorize_access_token()
-    resp = oauth.twitter.get('account/verify_credentials.json')
-    profile = resp.json()
+    resp = oauth.twitter.get('userinfo')
+    user_info = resp.json()
     return redirect('/')
 
