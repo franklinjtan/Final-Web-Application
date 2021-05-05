@@ -37,3 +37,8 @@ def authorize():
     session['email'] = user_info['email']
     return redirect('/')
 
+@app.route('/logout')
+def logout():
+    for key in list(session.keys()):
+        session.pop(key)
+    return redirect('/')
