@@ -1,5 +1,6 @@
 from flask import Flask, redirect, url_for, session
 from authlib.integrations.flask_client import OAuth
+import urllib.request
 
 app = Flask(__name__)
 app.secret_key = 'ying wu college 2021 secret key'
@@ -42,3 +43,6 @@ def logout():
     for key in list(session.keys()):
         session.pop(key)
     return redirect('/')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')

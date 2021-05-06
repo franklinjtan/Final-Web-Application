@@ -1,0 +1,5 @@
+﻿Flask
+mysql-connector
+simplejson
+Authlib==0.14.1
+requests
