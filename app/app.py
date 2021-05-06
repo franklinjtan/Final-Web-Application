@@ -21,7 +21,7 @@ google = oauth.register(
 @app.route('/')
 def hello_user():
     email = dict(session).get('email', None)
-    return f'Hello, {email}!'
+    return f'Hello, {email} this is the main page!'
 
 @app.route('/login')
 def login():
