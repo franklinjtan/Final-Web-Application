@@ -1,8 +1,8 @@
 from flask import Flask, redirect, url_for, session, render_template
 from authlib.integrations.flask_client import OAuth
-import urllib.request
 
-app = Flask(__name__, template_folder='template')
+
+app = Flask(__name__, template_folder='templates')
 app.secret_key = 'ying wu college 2021 secret key'
 
 oauth = OAuth(app)
@@ -23,7 +23,7 @@ def hello_user():
     email = dict(session).get('email', None)
     return f'Hello, {email} this is the main page!'
 
-@app.route('/home')
+@app.route('/home', methods=['GET'])
 def home():
     return render_template('index.html')
 
@@ -49,4 +49,4 @@ def logout():
     return redirect('/')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)
