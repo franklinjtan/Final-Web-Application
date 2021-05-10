@@ -23,6 +23,10 @@ Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seek
 
 ![OAuth2](/screenshots/Oauth2%20Login%20Working.png)
 
+### Raw Stock Data
+
+![Raw-Stock-Data](/screenshots/Raw-Stock-Data.JPG)
+
 ### Porfolio in Database/PyCharm
 
 ![PortfolioDB](/screenshots/Portfolio-in-Database.JPG)
