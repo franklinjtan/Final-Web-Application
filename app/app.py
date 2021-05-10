@@ -4,7 +4,6 @@ import simplejson as json
 from flask import Flask, redirect, url_for, session, render_template, Response, request
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
-import mysql.connector
 
 from authlib.integrations.flask_client import OAuth
 
@@ -70,7 +69,7 @@ def form_update_post(stock_id):
                  request.form.get('Weight'), request.form.get('Gain_Loss'),
                  request.form.get('Gain_Loss_1'), request.form.get('Price'), request.form.get('Price_Target'), stock_id)
     sql_update_query = """UPDATE stockPortfolioImport t SET t.Symbol = %s, t.Company_Name = %s, t.Rating = %s, t.Weight = 
-    %s, t.Gain_Loss = %s, t.Gain_Loss_1 = %s, t.Price = %s, t.Price_Target = %s, WHERE t.id = %s """
+    %s, t.Gain_Loss = %s, t.Gain_Loss_1 = %s, t.Price = %s, t.Price_Target = %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -107,7 +106,7 @@ def api_browse() -> str:
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM stockPortfolioImport')
     result = cursor.fetchall()
-    json_result = json.dumps(result);
+    json_result = json.dumps(result)
     resp = Response(json_result, status=200, mimetype='application/json')
     return resp
 
