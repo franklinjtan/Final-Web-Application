@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/hw/new" method="POST">
+    <div class="row">
+        <div class="col">
+            <label for="Height_Inches">Height Inches</label>
+            <input id="Height_Inches" type="text" class="form-control" placeholder="Height Inches" name="Height_Inches">
+        </div>
+        <div class="col">
+            <label for="">Weight_Pounds</label>
+            <input id="" type="text" class="form-control" placeholder="Weight Pounds" name="Weight_Pounds">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+
+</form>
+
+{% endblock %}

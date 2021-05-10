@@ -8,9 +8,9 @@ from typing import List, Dict
 import simplejson as json
 
 app = Flask(__name__, template_folder='templates'
+mysql = MySQL(cursorclass=DictCursor)
 app.secret_key = 'ying wu college 2021 secret key'
 
-mysql = MySQL(cursorclass=DictCursor)
 app.config['MYSQL_DATABASE_HOST'] = 'db'
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
@@ -31,9 +31,11 @@ google = oauth.register(
     api_base_url='https://www.googleapis.com/oauth2/v1/',
     client_kwargs={'scope': 'openid email profile'},
 )
-# ----------------------------------- #
+         # ----------------------------------- #
 
-@app.route('/', methods=['GET'])
+         @ app.route('/', methods=['GET'])
+
+
 def index():
     email = dict(session).get('email', None)
     user = {'username': 'Stock Portfolio'}
@@ -41,6 +43,7 @@ def index():
     cursor.execute('SELECT * FROM stockPortfolioImport')
     result = cursor.fetchall()
     return render_template('index.html', title='Home', user=user, stocks=result)
+
 
 @app.route('/view/<int:stock_id>', methods=['GET'])
 def record_view(stock_id):
@@ -70,6 +73,7 @@ def form_update_post(stock_id):
     mysql.get_db().commit()
     return redirect("/", code=302)
 
+
 @app.route('/stocks/new', methods=['GET'])
 def form_insert_get():
     return render_template('new.html', title='New stock Form')
@@ -85,6 +89,7 @@ def form_insert_post():
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
+
 
 @app.route('/delete/<int:stock_id>', methods=['POST'])
 def form_delete_post(stock_id):
@@ -132,12 +137,14 @@ def api_delete(stock_id) -> str:
     resp = Response(status=210, mimetype='application/json')
     return resp
 
+
 # Authentication Section Start
 @app.route('/login')
 def login():
     google = oauth.create_client('google')
     redirect_uri = url_for('authorize', _external=True)
     return google.authorize_redirect(redirect_uri)
+
 
 @app.route('/authorize')
 def authorize():
@@ -148,11 +155,13 @@ def authorize():
     session['email'] = user_info['email']
     return redirect('/')
 
+
 @app.route('/logout')
 def logout():
     for key in list(session.keys()):
         session.pop(key)
     return redirect('/')
+
 
 # Authentication Section End
 
