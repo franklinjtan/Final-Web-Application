@@ -1,8 +1,14 @@
-# Final Web Application
+# Final Web Application - Franklin Tan
 ## Project Description
 Using Oauth2 login
 ## Project Outline
-* [x] Oauth2 Login
+* [x] Research on Portfolio Data
+* [x] Implementing Docker
+* [x] Configuring MySQL Database
+* [x] Configuring BootStrap
+* [x] Setting up HTML Templates
+* [x] Implementing Flask 
+* [] Oauth2 Login
 
 ## Project Highlights
 ### Oauth 2 Login Screen
