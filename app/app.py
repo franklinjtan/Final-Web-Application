@@ -8,7 +8,7 @@ import mysql.connector
 from authlib.integrations.flask_client import OAuth
 
 app = Flask(__name__, template_folder='templates')
-mysql = MySQL(cursorclass=DictCusor)
+mysql = MySQL(cursorclass=DictCursor)
 mysql.init_app(app)
 app.secret_key = 'ying wu college 2021 secret key'
 
@@ -116,7 +116,7 @@ def api_retrieve(stock_id) -> str:
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM stockPortfolioImport WHERE id=%s', stock_id)
     result = cursor.fetchall()
-    json_result = json.dumps(result);
+    json_result = json.dumps(result)
     resp = Response(json_result, status=200, mimetype='application/json')
     return resp
 
