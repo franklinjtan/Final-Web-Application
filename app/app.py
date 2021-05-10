@@ -142,7 +142,7 @@ def api_delete(stock_id) -> str:
 # Authentication Section Start
 @app.route('/login')
 def login():
-    google = oauth.create_client('google')
+    google = oauth.create_client('google')  # create the google oauth client
     redirect_uri = url_for('authorize', _external=True)
     return google.authorize_redirect(redirect_uri)
 
