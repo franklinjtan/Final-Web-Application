@@ -1,9 +1,14 @@
 from urllib import request
-from flask import Flask, redirect, url_for, session, render_template
+from flask import Flask, redirect, url_for, session, render_template, Response
 from authlib.integrations.flask_client import OAuth
+from flaskext.mysql import MySQL
+from pymysql.cursors import DictCursor
 import requests
+from typing import List, Dict
+import simplejson as json
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__, template_folder='templates'
+
 app.secret_key = 'ying wu college 2021 secret key'
 
 
