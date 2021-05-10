@@ -23,6 +23,10 @@ Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seek
 
 ![OAuth2](/screenshots/Oauth2%20Login%20Working.png)
 
+### Stock Holdings Dashboard 
+
+![Stock Holdings Dashboard](/screenshots/Stock-Holdings-Page.JPG)
+
 ### Raw Stock Data
 
 ![Raw-Stock-Data](/screenshots/Raw-Stock-Data.JPG)
