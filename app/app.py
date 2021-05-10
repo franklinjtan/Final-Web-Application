@@ -1,14 +1,15 @@
 from urllib import request
+import simplejson as json
 from flask import Flask, redirect, url_for, session, render_template, Response
-from authlib.integrations.flask_client import OAuth
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
-import requests
-from typing import List, Dict
-import simplejson as json
+import mysql.connector
 
-app = Flask(__name__, template_folder='templates'
-mysql = MySQL(cursorclass=DictCursor)
+from authlib.integrations.flask_client import OAuth
+
+app = Flask(__name__, template_folder='templates')
+mysql = MySQL(cursorclass=DictCusor)
+mysql.init_app(app)
 app.secret_key = 'ying wu college 2021 secret key'
 
 app.config['MYSQL_DATABASE_HOST'] = 'db'
@@ -31,11 +32,11 @@ google = oauth.register(
     api_base_url='https://www.googleapis.com/oauth2/v1/',
     client_kwargs={'scope': 'openid email profile'},
 )
-         # ----------------------------------- #
-
-         @ app.route('/', methods=['GET'])
 
 
+# ----------------------------------- #
+
+@app.route('/', methods=['GET'])
 def index():
     email = dict(session).get('email', None)
     user = {'username': 'Stock Portfolio'}

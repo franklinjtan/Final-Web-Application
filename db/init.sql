@@ -2,7 +2,7 @@ CREATE DATABASE stockData;
 use stockData;
 
 CREATE TABLE IF NOT EXISTS stockPortfolioImport (
-    `id` INT AUTO_INCREMENT,
+
     `Symbol` VARCHAR(5) CHARACTER SET utf8,
     `Company_Name` VARCHAR(34) CHARACTER SET utf8,
     `Rating` VARCHAR(13) CHARACTER SET utf8,
@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS stockPortfolioImport (
     `Gain_Loss` NUMERIC(8, 2),
     `Gain_Loss_1` NUMERIC(6, 2),
     `Price` NUMERIC(6, 2),
-    `Price_Target` NUMERIC(6, 2),
-    PRIMARY KEY ('id')
+    `Price_Target` NUMERIC(6, 2)
+
 );
 INSERT INTO stockPortfolioImport (Symbol, Company_Name, Rating, Weight, Gain_Loss, Gain_Loss_1, Price, Price_Target) VALUES
     ('AAPL','Apple Inc','1',5.39,159418,587.41,133.26,135),
