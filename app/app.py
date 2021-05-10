@@ -8,9 +8,15 @@ from typing import List, Dict
 import simplejson as json
 
 app = Flask(__name__, template_folder='templates'
-
 app.secret_key = 'ying wu college 2021 secret key'
 
+mysql = MySQL(cursorclass=DictCursor)
+app.config['MYSQL_DATABASE_HOST'] = 'db'
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
+app.config['MYSQL_DATABASE_PORT'] = 3306
+app.config['MYSQL_DATABASE_DB'] = 'citiesData'
+mysql.init_app(app)
 
 oauth = OAuth(app)
 google = oauth.register(
@@ -25,16 +31,17 @@ google = oauth.register(
     client_kwargs={'scope': 'openid email profile'},
 )
 
-@app.route('/')
-def hello_user():
-    email = dict(session).get('email', None)
-    return f'Hello, {email} this is the main page!'
-
-
-@app.route('/home', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    email = dict(session).get('email', None)
+    user = {'username': 'Stock Portfolio'}
+    cursor = mysql.get_db().cursor()
+    cursor.execute('SELECT * FROM tblCitiesImport')
+    result = cursor.fetchall()
+    return render_template('index.html', title='Home', user=user, stocks=result)
 
+
+# Authentication Code
 @app.route('/login')
 def login():
     google = oauth.create_client('google')
