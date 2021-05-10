@@ -1,9 +1,11 @@
+from urllib import request
 from flask import Flask, redirect, url_for, session, render_template
 from authlib.integrations.flask_client import OAuth
-
+import requests
 
 app = Flask(__name__, template_folder='templates')
 app.secret_key = 'ying wu college 2021 secret key'
+
 
 oauth = OAuth(app)
 google = oauth.register(
@@ -23,8 +25,9 @@ def hello_user():
     email = dict(session).get('email', None)
     return f'Hello, {email} this is the main page!'
 
+
 @app.route('/home', methods=['GET'])
-def home():
+def index():
     return render_template('index.html')
 
 @app.route('/login')
