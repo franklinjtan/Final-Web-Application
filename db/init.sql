@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS stockPortfolioImport (
     `Price` NUMERIC(6, 2),
     `Price_Target` NUMERIC(6, 2)
 );
-INSERT INTO stockPortfolioImport VALUES
+INSERT INTO stockPortfolioImport (Symbol, Company_Name, Rating, Weight, Gain_Loss, Gain_Loss_1, Price, Price_Target) VALUES
     ('AAPL','Apple Inc','1',5.39,159418,587.41,133.26,135),
     ('ABBV','AbbVie Inc.','2',3.78,33049.02,33.8,102.6,120),
     ('ABT','Abbott Laboratories','2',2.8,33904.04,53.86,107.62,120),
