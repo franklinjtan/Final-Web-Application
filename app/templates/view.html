@@ -1,15 +1,45 @@
 {% extends "layout.html" %}
 {% block content %}
-<form action="/edit/{{hw.id}}" method="post">
+<form action="/edit/{{stock.id}}" method="post">
     <div class="row">
         <div class="col">
-            <label for="Height_Inches">Height Inches</label>
-            <input id="Height_Inches" type="text" class="form-control" placeholder="Height Inches" name="Height_Inches" value="{{hw.Height_Inches}}">
+            <label for="Symbol">Stock Symbol</label>
+            <input id="Symbol" type="text" class="form-control" placeholder="Symbol" name="Symbol" value="{{stock.Symbol}}">
         </div>
 
         <div class="col">
-            <label for="Weight_Pounds">Weight Pounds</label>
-            <input id="Weight_Pounds" type="text" class="form-control" placeholder="Weight Pounds" name="Weight_Pounds" value="{{hw.Weight_Pounds}}">
+            <label for="Company_Name">Company Name</label>
+            <input id="Company_Name" type="text" class="form-control" placeholder="Company Name" name="Company_Name" value="{{stock.Company_Name}}">
+        </div>
+
+        <div class="col">
+            <label for="Rating">Rating</label>
+            <input id="Rating" type="text" class="form-control" placeholder="Rating" name="Rating" value="{{stock.Rating}}">
+        </div>
+
+        <div class="col">
+            <label for="Weight">Weight</label>
+            <input id="Weight" type="text" class="form-control" placeholder="Weight" name="Weight" value="{{stock.Weight}}">
+        </div>
+
+        <div class="col">
+            <label for="Gain_Loss">Gain Loss Total</label>
+            <input id="Gain_Loss" type="text" class="form-control" placeholder="Gain Loss Total" name="Gain_Loss" value="{{stock.Gain_Loss}}">
+        </div>
+
+        <div class="col">
+            <label for="Gain_Loss_1">Gain Loss Daily</label>
+            <input id="Gain_Loss_1" type="text" class="form-control" placeholder="Gain Loss Daily" name="Gain_Loss_1" value="{{stock.Gain_Loss_1}}">
+        </div>
+
+        <div class="col">
+            <label for="Price">Price</label>
+            <input id="Price" type="text" class="form-control" placeholder="Price" name="Price" value="{{stock.Price}}">
+        </div>
+
+        <div class="col">
+            <label for="Price_Target">Price_Target</label>
+            <input id="Price_Target" type="text" class="form-control" placeholder="Price_Target" name="Price_Target" value="{{stock.Price_Target}}">
         </div>
     </div>
 
