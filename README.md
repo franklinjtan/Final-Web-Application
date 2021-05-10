@@ -4,7 +4,8 @@
 
 Using Python, Docker, Flask, Jinja, Bootstrap, and MySQL I built an application that is designed to journalize all stocks in a given portfolio.
 I also implemented Oauth2 to make it easier for users to login using their Google Accounts. 
-In the future, I am looking to integrate Yahoo Finance into this application.
+In the near future, I will look to integrate Yahoo Finance modules to make the application retrieve the latest stock prices. 
+Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seeking Alpha, and Yahoo News and capture the latest news for the given company.
 
 ## Project Outline
 
