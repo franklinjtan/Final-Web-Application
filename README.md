@@ -8,7 +8,7 @@ Using Oauth2 login
 * [x] Configuring BootStrap
 * [x] Setting up HTML Templates
 * [x] Implementing Flask 
-* [] Oauth2 Login
+* [x] Oauth2 Login
 
 ## Project Highlights
 ### Oauth 2 Login Screen
