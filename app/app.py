@@ -62,7 +62,7 @@ def logout():
 @app.route('/', methods=['GET'])
 def index():
     # email = dict(session).get('email', None)
-    user = {'username': 'Stock Portfolio'}
+    user = {'username': 'Franklin'}
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM stockPortfolioImport')
     result = cursor.fetchall()

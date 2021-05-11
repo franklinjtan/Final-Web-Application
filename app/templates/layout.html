@@ -5,6 +5,7 @@
     <!-- Bootstrap CSS -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link rel="stylesheet" href="footer.css">
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
     {% if user %}
@@ -18,7 +19,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-1">
-    <a class="navbar-brand" href="/">{% if user %}{{ user.username }}'s Homepage{% else %}
+    <a class="navbar-brand" href="/">{% if user %}{{ user.username }}'s Stock Holdings{% else %}
         <title>Welcome to My Homepage</title>
         {% endif %}</a>
     <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
@@ -34,6 +35,20 @@
                 <a class="nav-link" href="/api/v1/stocks">Raw Data<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
+                <a class="nav-link" href="https://finance.yahoo.com/">Yahoo Finance<span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="https://www.gurufocus.com/new_index/">Guru Focus<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="https://seekingalpha.com/">Seeking Alpha<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="https://finviz.com/map.ashx?t=sec">Finviz S&P500 Heat Map<span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
                 <a class="btn btn-success pl-2 lr-2 ml-3" href="/stocks/new"> Add Stock Holdings <span class="sr-only">(current)</span></a>
             </li>
         </ul>
@@ -44,7 +59,71 @@
     {% block content %}
     {% endblock %}
 </main>
-<div id="footer">
+
+<footer class="bg-primary text-white text-center text-lg-start">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">About this Assignment</h5>
+
+                <p>
+                    In this assignment, we are tasked to create a website that teaches a new user about what Docker is
+                    and how it compares to virtualization. We cover other topics like containerization, linux commands,
+                    and connecting Docker with PyCharm.
+                </p>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Topics 1</h5>
+
+                <ul class="list-unstyled mb-0">
+                    <li class="nav-item">
+                        <a class="text-white" href="virtualization.html">What is Virtualization</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-white" href="containerization.html">What is Containerization</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-white" href="comparison.html">Comparison</a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-0">Topics 2</h5>
+
+                <ul class="list-unstyled">
+                    <li class="nav-item">
+                        <a class="text-white" href="webserver_tutorial.html">Web Server Tutorial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-white" href="linux_commands.html">Basic Linux Commands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-white" href="docker_tutorial.html">Docker with Pycharm Tutorial</a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: #343A40">
+        © 2021 Franklin Tan
+        <a class="text-white" href="https://github.com/fjt7/Final-Web-Application">Github Repository</a>
+    </div>
+    <!-- Copyright -->
+</footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script crossorigin="anonymous"
