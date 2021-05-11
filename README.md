@@ -32,6 +32,10 @@ Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seek
 
 ![Raw-Stock-Data](/screenshots/Raw-Stock-Data.JPG)
 
+### Postman Working
+
+![Postman-Working](/screenshots/Postman-Working.JPG)
+
 ### Porfolio in Database/PyCharm
 
 ![PortfolioDB](/screenshots/Portfolio-in-Database.JPG)
