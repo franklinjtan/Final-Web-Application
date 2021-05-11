@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Using Python, Docker, Flask, Jinja, Bootstrap, and MySQL I built an application that is designed to journalize all stocks in a given portfolio.
+Using Python, Docker, Flask, Jinja, Bootstrap, HTML, CSS and MySQL I built an application that is designed to journalize all stocks in a given portfolio.
 I also implemented Oauth2 to make it easier for users to login using their Google Accounts. 
 In the near future, I will look to integrate Yahoo Finance modules to make the application retrieve the latest stock prices. 
 Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seeking Alpha, and Yahoo News and capture the latest news for the given company.
@@ -13,9 +13,10 @@ Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seek
 * [x] Implementing Docker
 * [x] Configuring MySQL Database
 * [x] Configuring BootStrap
-* [x] Setting up HTML Templates
+* [x] Setting up Routes
 * [x] Implementing Flask
 * [x] Oauth2 Login
+* [x] Design Features (Nav Menu + Footer)
 
 ## Project Highlights
 
@@ -50,6 +51,7 @@ Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seek
 * Flask
 * Jinja
 * HTML
+* CSS
 * Bootstrap
 * MySQL
 * PyCharm(IDE)
