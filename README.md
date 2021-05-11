@@ -54,6 +54,7 @@ Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seek
 * Python
 * Flask
 * Jinja
+* Postman
 * HTML
 * CSS
 * Bootstrap
