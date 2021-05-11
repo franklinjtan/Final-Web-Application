@@ -7,7 +7,7 @@ I also implemented Oauth2 to make it easier for users to login using their Googl
 In the near future, I will look to integrate Yahoo Finance modules to make the application retrieve the latest stock prices. 
 Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seeking Alpha, and Yahoo News and capture the latest news for the given company.
 
-## Project Outline
+## Project Planning Outline
 
 * [x] Research on Portfolio Data
 * [x] Implementing Docker
@@ -20,7 +20,7 @@ Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seek
 
 ## Project Highlights
 
-### Oauth 2 Login Screen
+### Oauth 2 Login Screen (Must be part of NJIT Network to access application)
 
 ![OAuth2](/screenshots/Oauth2%20Login%20Working.png)
 
@@ -56,6 +56,20 @@ Additionally, I plan to scrape Top Financials News Sites such as GuruFocus, Seek
 * MySQL
 * PyCharm(IDE)
 
-## Authors
+## Developer
 
-* Franklin Tan 
+* Franklin Tan - NJIT
+
+## Sources
+* https://www.liberatedstocktrader.com/stock-portfolio-examples/
+* https://www.youtube.com/watch?v=BfYsdNaHrps
+* https://www.jetbrains.com/help/pycharm/connecting-to-a-database.html#connect-to-amazon-redshift
+* https://pymysql.readthedocs.io/en/latest/modules/cursors.html
+* https://pymysql.readthedocs.io/en/latest/user/examples.html
+* https://help.pythonanywhere.com/pages/InstallingNewModules/
+* https://flask-mysql.readthedocs.io/en/stable/
+* https://stackoverflow.com/questions/33241924/importerror-no-module-named-flask-ext-mysql
+* https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html#python_create_virtual_env
+* https://console.cloud.google.com/home/dashboard?folder=&organizationId=&project=is218-final-web-application
+* https://www.w3schools.com/html/html_css.asp
+* https://getbootstrap.com/docs/4.1/examples/
