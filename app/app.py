@@ -19,7 +19,7 @@ app.config['MYSQL_DATABASE_PORT'] = 3306
 app.config['MYSQL_DATABASE_DB'] = 'stockData'
 mysql.init_app(app)
 
-# Authentication -------------------- #
+# Authentication Section Start
 oauth = OAuth(app)
 google = oauth.register(
     name='google',
@@ -34,11 +34,34 @@ google = oauth.register(
 )
 
 
-# ----------------------------------- #
+@app.route('/login')
+def login():
+    google = oauth.create_client('google')  # create the google oauth client
+    redirect_uri = url_for('authorize', _external=True)
+    return google.authorize_redirect(redirect_uri)
+
+
+@app.route('/authorize')
+def authorize():
+    google = oauth.create_client('google')
+    token = google.authorize_access_token()
+    resp = google.get('userinfo')
+    user_info = resp.json()
+    session['email'] = user_info['email']
+    return redirect('/')
+
+@app.route('/logout')
+def logout():
+    for key in list(session.keys()):
+        session.pop(key)
+    return redirect('/')
+
+
+# Authentication Section End
 
 @app.route('/', methods=['GET'])
 def index():
-    email = dict(session).get('email', None)
+    # email = dict(session).get('email', None)
     user = {'username': 'Stock Portfolio'}
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM stockPortfolioImport')
@@ -86,7 +109,7 @@ def form_insert_post():
     inputData = (request.form.get('Symbol'), request.form.get('Company_Name'), request.form.get('Rating'),
                  request.form.get('Weight'), request.form.get('Gain_Loss'),
                  request.form.get('Gain_Loss_1'), request.form.get('Price'), request.form.get('Price_Target'))
-    sql_insert_query = """INSERT INTO stockPortfolioImport (Symbol,Company_Name,Rating,Weight,Gain_Loss,Gain_Loss_1,Price, Price_Target) VALUES (%s, %s,%s, %s,%s, %s,%s) """
+    sql_insert_query = """INSERT INTO stockPortfolioImport (Symbol,Company_Name,Rating,Weight,Gain_Loss,Gain_Loss_1,Price, Price_Target) VALUES (%s, %s,%s, %s,%s, %s,%s,%s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -137,34 +160,6 @@ def api_edit(stock_id) -> str:
 def api_delete(stock_id) -> str:
     resp = Response(status=210, mimetype='application/json')
     return resp
-
-
-# Authentication Section Start
-@app.route('/login')
-def login():
-    google = oauth.create_client('google')  # create the google oauth client
-    redirect_uri = url_for('authorize', _external=True)
-    return google.authorize_redirect(redirect_uri)
-
-
-@app.route('/authorize')
-def authorize():
-    google = oauth.create_client('google')
-    token = google.authorize_access_token()
-    resp = google.get('userinfo')
-    user_info = resp.json()
-    session['email'] = user_info['email']
-    return redirect('/')
-
-
-@app.route('/logout')
-def logout():
-    for key in list(session.keys()):
-        session.pop(key)
-    return redirect('/')
-
-
-# Authentication Section End
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
